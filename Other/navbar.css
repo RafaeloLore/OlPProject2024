@@ -1,0 +1,19 @@
+*{
+ margin: 0;
+ padding: 0;   
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.695);
+    width: 100%;
+    height: 50px;
+}
+.nav__logo{
+    width:75px;
+    background-color: aliceblue;
+    border-radius: 100px;
+}
+.home__button,
+ login__buton{
+    color: burlywood;
+}
