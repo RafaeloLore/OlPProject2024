@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/Other/navbar.css">
+    <link rel="stylesheet" href="/Other/navbar.css" />
 
     <link rel="stylesheet" href="/Register/registerSt.css" />
   </head>
   <body>
     <header>
-      <img class="nav__logo" src="/Photos/home-shape-icon--25.png">
-      <input class="home__button" type="button" value="HomePage" />
-      <input class="login__button" type="button" value="LoginPage" />
+      <a href="/Home/homepage.html"
+        ><input class="home__button btn btn1" type="button" value="HomePage"
+      /></a>
+      <img class="nav__logo" src="/Photos/home-shape-icon--25.png" />
 
-    
+      <a href="/Login/login.html"
+        ><input class="login__button btn btn2" type="button" value="LoginPage"
+      /></a>
     </header>
     <section>
       <form>
@@ -50,6 +53,14 @@
           id="password"
           required
         />
+        <label>RepeatPassword</label>
+        <input
+          type="password"
+          placeholder="Repeatpassword"
+          name="repeat__password"
+          id="repeat__password"
+          required
+        />
 
         <label>Birthday</label>
         <input
@@ -58,6 +69,13 @@
           name="birthday"
           id="birthday"
           required
+        />
+        <input
+          type="button"
+          name="register"
+          id="register"
+          class="regbutton"
+          value="Register"
         />
       </form>
     </section>

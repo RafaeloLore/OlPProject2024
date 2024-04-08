@@ -1,19 +1,54 @@
-*{
- margin: 0;
- padding: 0;   
+* {
+  margin: 0;
+  padding: 0;
 }
 
-header{
-    background-color: rgba(0, 0, 0, 0.695);
-    width: 100%;
-    height: 50px;
+header {
+  background-color: rgba(141, 141, 141, 0.445);
+  width: 20%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  border-radius: 0px 0px 50px;
 }
-.nav__logo{
-    width:75px;
-    background-color: aliceblue;
-    border-radius: 100px;
+.nav__logo {
+  width: 75px;
+  height: 75px;
+  background-color: white;
+  border-radius: 100px;
+  cursor: pointer;
+  z-index: 1;
+  
 }
-.home__button,
- login__buton{
-    color: burlywood;
+
+.btn {
+  width: 100px;
+  height: 25px;
+  border: none;
+  font-size: 15px;
+  font-family: Fantasy;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
+.btn1 {
+  border-radius: 15px 0px 0px 15px;
+  transition: 0.3s;
+  margin-right: -2px;
+}
+.btn2 {
+  border-radius: 0px 15px 15px 0px;
+  transition: 0.3s;
+  margin-left: -2px;
+}
+.btn1:hover {
+  background-color: rgb(43, 43, 43);
+  color: white;
+}
+.btn2:hover {
+  background-color: rgb(54, 54, 54);
+  color: white;
 }
