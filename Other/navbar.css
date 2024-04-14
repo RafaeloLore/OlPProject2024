@@ -4,45 +4,54 @@
 }
 
 header {
-  background-color: rgba(141, 141, 141, 0.445);
-  width: 20%;
-  height: 85px;
+  background-color: rgba(0, 0, 0, 0.445);
+  width: 100%;
+  height: 115px;
   display: flex;
   align-items: center;
   justify-items: center;
   justify-content: center;
 
-  border-radius: 0px 0px 50px;
+  border-radius: 0px 0px 150px;
 }
 .nav__logo {
-  width: 75px;
-  height: 75px;
+  width: 95px;
+  height: 95px;
   background-color: white;
   border-radius: 100px;
   cursor: pointer;
   z-index: 1;
-  
+  border: 3px solid white;
+  transition: 0.3s;
+
 }
 
 .btn {
-  width: 100px;
-  height: 25px;
+  width: 140px;
+  height: 85px;
   border: none;
-  font-size: 15px;
+  font-size: 17px;
   font-family: Fantasy;
   cursor: pointer;
   color: rgb(0, 0, 0);
   background-color: white;
+  transition: 0.3s;
+
 }
 .btn1 {
-  border-radius: 15px 0px 0px 15px;
+  border-radius: 55px 0px 0px 55px;
   transition: 0.3s;
-  margin-right: -2px;
+  margin-right: -25px;
 }
 .btn2 {
-  border-radius: 0px 15px 15px 0px;
+  border-radius: 0px 55px 55px 0px;
   transition: 0.3s;
-  margin-left: -2px;
+  margin-left: -25px;
+}
+.nav__logo:hover {
+  transition: border-color 0.5s ;
+  border: 3px solid rgb(43, 43, 43);
+
 }
 .btn1:hover {
   background-color: rgb(43, 43, 43);
