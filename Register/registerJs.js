@@ -36,3 +36,21 @@ toastr.options = {
   showMethod: "fadeIn",
   hideMethod: "fadeOut",
 };
+
+
+
+
+function store(){
+var name = document.getElementById('name')
+var lastname= document.getElementById('lastname')
+var pw = document.getElementById('password')
+var bd= document.getElementById('birthday')
+var reg = document.getElementById('register')
+var dobleReg =document.getElementById('repeat__password')
+var mail = document.getElementById('email')
+
+if(name.ariaValueMax.length == 0{
+  alert('HALOO!')
+})
+
+}
