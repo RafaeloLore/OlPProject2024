@@ -4,45 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/Other/navbar.css" />
     <link rel="stylesheet" href="/Login/loginSt.css" />
+    <link rel="stylesheet" href="/Other/navbar.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="/Login/loginJs.js" defer></script>
+
+</head>
   </head>
   <body>
     <header>
-      <img class="nav__logo" src="/Photos/home-shape-icon--25.png" />
       <a href="/Home/homepage.html"
-        ><input class="home__button btn" type="button" value="HomePage"
+        ><input class="home__button btn btn1" type="button" value="HomePage"
       /></a>
-      <a href="/Login/login.html"
-        ><input class="login__button btn" type="button" value="LoginPage"
+      <a href="/Home/homepage.html">
+      <img class="nav__logo" src="/Photos/home-shape-icon--25.png" /></a>
+      
+
+      <a href="/Register/register.html"
+        ><input class="login__button btn btn2" type="button" value="Register"
       /></a>
     </header>
     <section>
-      <form>
-        <label>Email</label>
-        <input
-          type="text"
-          placeholder="Email"
-          name="email"
-          id="email"
-          required
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          placeholder="password"
-          name="password"
-          id="password"
-          required
-        />
-        <input
-          type="button"
-          name="login"
-          id="login"
-          class="loginbutton"
-          value="Login"
-        />
-      </form>
+      <form id="loginForm">
+        <label for="loginUsername">Имя пользователя:</label><br>
+        <input type="text" id="loginUsername" name="loginUsername" required><br>
+        <label for="loginPassword">Пароль:</label><br>
+        <input type="password" id="loginPassword" name="loginPassword" required><br>
+        <button type="submit">Войти</button>
+    </form>
     </section>
   </body>
 </html>
