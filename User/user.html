@@ -3,36 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Изменение данных</title>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
+    <title>Профиль пользователя</title>
   </head>
   <body>
-    <h2>Изменение данных</h2>
-    <form id="updateForm">
-      <label for="username">Новое имя пользователя:</label><br />
-      <input type="text" id="username" name="username" required /><br />
-      <label for="surname">Новая фамилия:</label><br />
-      <input type="text" id="surname" name="surname" required /><br />
-      <label for="email">Новый Email:</label><br />
-      <input type="email" id="email" name="email" required /><br />
-      <label for="password">Новый пароль:</label><br />
-      <input type="password" id="password" name="password" required /><br />
-      <label for="confirmPassword">Подтвердите новый пароль:</label><br />
-      <input
-        type="password"
-        id="confirmPassword"
-        name="confirmPassword"
-        required
-      /><br />
-      <button type="submit">Обновить данные</button>
-    </form>
+    <h2>Профиль пользователя</h2>
+    <p>Ваше имя: <span id="username"></span></p>
+    <p>Ваша фамилия: <span id="surname"></span></p>
+    <p>Email: <span id="email"></span></p>
+    <p><a href="edit_user.html">Изменить данные</a></p>
 
     <script>
-      // Функция для получения текущего пользователя из Local Storage
       function getCurrentUserFromLocalStorage() {
         var currentUser = localStorage.getItem("currentUser");
         return currentUser ? JSON.parse(currentUser) : null;
@@ -101,6 +81,38 @@
           document.getElementById("surname").value = currentUser.surname;
           document.getElementById("email").value = currentUser.email;
           // Пароль не должен быть заполнен, чтобы пользователь самостоятельно ввел новый пароль
+        }
+      };
+      // Функция для получения текущего пользователя из Local Storage
+      function getCurrentUserFromLocalStorage() {
+        var currentUser = localStorage.getItem("currentUser");
+        return currentUser ? JSON.parse(currentUser) : null;
+      }
+
+      // Заполним данные текущего пользователя при загрузке страницы
+      window.onload = function () {
+        var currentUser = getCurrentUserFromLocalStorage();
+        if (currentUser) {
+          document.getElementById("username").textContent =
+            currentUser.username;
+          document.getElementById("surname").textContent = currentUser.surname;
+          document.getElementById("email").textContent = currentUser.email;
+        }
+      };
+      // Функция для получения текущего пользователя из Local Storage
+      function getCurrentUserFromLocalStorage() {
+        var currentUser = localStorage.getItem("currentUser");
+        return currentUser ? JSON.parse(currentUser) : null;
+      }
+
+      // Заполним данные текущего пользователя при загрузке страницы
+      window.onload = function () {
+        var currentUser = getCurrentUserFromLocalStorage();
+        if (currentUser) {
+          document.getElementById("username").textContent =
+            currentUser.username;
+          document.getElementById("surname").textContent = currentUser.surname;
+          document.getElementById("email").textContent = currentUser.email;
         }
       };
     </script>
