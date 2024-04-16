@@ -15,26 +15,26 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 form {
   display: flex;
   flex-direction: column;
   width: 509px;
-  height: 509px;
+  height: 609px;
   padding: 15px;
-  background: #000000b2 ;
- 
+  background: #000000b2;
+
   border-radius: 0px 0px 35px 35px;
   align-items: center;
   justify-items: center;
 }
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   width: 50%;
   height: 25px;
-  margin: 5px 0 22px 0;
+  margin: 15px 0px 15px 0px;
   display: inline-block;
   border: none;
   background: #ffffff;
@@ -61,17 +61,15 @@ input[type="date"] {
   border-radius: 25px;
   border: none;
   transition: 0.3s;
-
 }
-.regbutton:hover{
+.regbutton:hover {
   color: white;
-  background-color:rgb(43, 43, 43);
+  background-color: rgb(43, 43, 43);
   transition: 0.3s;
-
 }
-input[type="date"]:hover{
+input[type="date"]:hover {
   color: white;
-  background-color:rgb(43, 43, 43);
+  background-color: rgb(43, 43, 43);
   transition: 0.3s;
 }
 label {

@@ -15,6 +15,7 @@ document
     event.preventDefault(); // Предотвращаем отправку формы
 
     var username = document.getElementById("username").value;
+    var familiname = document.getElementById("familiname").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
@@ -22,13 +23,14 @@ document
     // Проверка на пустые поля и совпадение паролей
     if (
       !username ||
+      !familiname ||
       !email ||
       !password ||
       !confirmPassword ||
       password !== confirmPassword
     ) {
       Toastify({
-        text: "Пожалуйста, заполните все поля и проверьте пароли",
+        text: "Verficati daca ati indeplenit toate campurili si parola este corecta",
         duration: 3000,
         close: true,
         backgroundColor: "red",
@@ -40,9 +42,13 @@ document
     var users = getUsersFromLocalStorage();
 
     // Проверяем, есть ли уже пользователь с таким именем
-    if (users.some((user) => user.username === username)) {
+    if (
+      users.some(
+        (user) => user.username === username && user.familiname === familiname
+      )
+    ) {
       Toastify({
-        text: "Пользователь с таким именем уже существует",
+        text: "Numele esete ocupat",
         duration: 3000,
         close: true,
         backgroundColor: "red",
@@ -51,13 +57,18 @@ document
     }
 
     // Добавляем нового пользователя в список
-    users.push({ username: username, email: email, password: password });
+    users.push({
+      username: username,
+      familiname: familiname,
+      email: email,
+      password: password,
+    });
 
     // Сохраняем обновленный список пользователей в Local Storage
     saveUsersToLocalStorage(users);
 
     Toastify({
-      text: "Регистрация успешна!",
+      text: "Register Confirm!",
       duration: 3000,
       close: true,
       backgroundColor: "green",
