@@ -20,18 +20,20 @@ form {
   display: flex;
   flex-direction: column;
   width: 509px;
-  height: 250px;
-  padding: 15px;
-  background: #5f5e5e94;
-  border-radius: 5px;
+  height: 80%;
+  padding: 10px;
+  background: #000000b2;
+
+  border-radius: 0px 0px 35px 35px;
   align-items: center;
   justify-items: center;
 }
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   width: 50%;
   height: 25px;
-  margin: 5px 0 22px 0;
+  margin: 15px 0px 15px 0px;
   display: inline-block;
   border: none;
   background: #ffffff;
@@ -49,13 +51,25 @@ input[type="date"] {
   text-align: center;
   cursor: pointer;
 }
-.loginbutton {
+.regbutton {
   margin-top: 15px;
-  height: 30px;
-  width: 120px;
+  height: 40px;
+  width: 130px;
   cursor: pointer;
-  border-radius: 15px;
+  font-size: 17px;
+  border-radius: 25px;
   border: none;
+  transition: 0.3s;
+}
+.regbutton:hover {
+  color: white;
+  background-color: rgb(43, 43, 43);
+  transition: 0.3s;
+}
+input[type="date"]:hover {
+  color: white;
+  background-color: rgb(43, 43, 43);
+  transition: 0.3s;
 }
 label {
   font-size: 20px;

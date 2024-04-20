@@ -23,15 +23,15 @@ document
 
     if (user) {
       Toastify({
-        text: "Вход успешен!",
+        text: "Login!",
         duration: 3000,
         close: true,
         backgroundColor: "green",
       }).showToast();
-      window.location.href = "/Home/homepage.html"; // Перенаправление на домашнюю страницу
+      window.location.href = "/Home/homepage.html"; // Перенаправление на домашнюю страницу//
     } else {
       Toastify({
-        text: "Неверное имя пользователя или пароль",
+        text: "Numele sau parola incorect",
         duration: 3000,
         close: true,
         backgroundColor: "red",

@@ -1,10 +1,10 @@
-// Функция для получения данных о пользователях из Local Storage
+// Функция для получения данных о пользователях из Local Storage//
 function getUsersFromLocalStorage() {
   var users = localStorage.getItem("users");
   return users ? JSON.parse(users) : [];
 }
 
-// Функция для сохранения данных о пользователях в Local Storage
+// Функция для сохранения данных о пользователях в Local Storage//
 function saveUsersToLocalStorage(users) {
   localStorage.setItem("users", JSON.stringify(users));
 }
@@ -20,7 +20,7 @@ document
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
 
-    // Проверка на пустые поля и совпадение паролей
+    // Проверка на пустые поля и совпадение паролей//
     if (
       !username ||
       !familiname ||
@@ -38,10 +38,11 @@ document
       return;
     }
 
-    // Получаем текущий список пользователей
+
+    // Получаем текущий список пользователей//
     var users = getUsersFromLocalStorage();
 
-    // Проверяем, есть ли уже пользователь с таким именем
+    // Проверяем, есть ли уже пользователь с таким именем//
     if (
       users.some(
         (user) => user.username === username && user.familiname === familiname
@@ -56,7 +57,7 @@ document
       return;
     }
 
-    // Добавляем нового пользователя в список
+    //Addaugam user nou in lista //
     users.push({
       username: username,
       familiname: familiname,
