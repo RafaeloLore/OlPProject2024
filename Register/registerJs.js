@@ -22,6 +22,33 @@ document
     var symbolRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
     var lessThanFourLettersRegex = /^.{1,3}$/;
 
+    // Verifică dacă numele conține simboluri sau are mai puțin de 4 litere
+    if (symbolRegex.test(username) || lessThanFourLettersRegex.test(username)) {
+      Toastify({
+        text: "Numele trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
+        duration: 3000,
+        close: true,
+        backgroundColor: "red",
+      }).showToast();
+      return;
+    }
+
+    // Verifică dacă numele de familie conține simboluri sau are mai puțin de 4 litere
+    if (
+      symbolRegex.test(familiname) ||
+      lessThanFourLettersRegex.test(familiname)
+    ) {
+      Toastify({
+        text: "Numele de familie trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
+        duration: 3000,
+        close: true,
+        backgroundColor: "red",
+      }).showToast();
+      return;
+    }
+
+    // Dacă toate condițiile sunt îndeplinite, poți continua cu procesul de înregistrare
+    // ...
     // Проверка на пустые поля и совпадение паролей//
     if (
       !username ||
@@ -39,7 +66,6 @@ document
       }).showToast();
       return;
     }
-
 
     // Получаем текущий список пользователей//
     var users = getUsersFromLocalStorage();
@@ -76,28 +102,4 @@ document
       close: true,
       backgroundColor: "green",
     }).showToast();
-    // Verifică dacă numele conține simboluri sau are mai puțin de 4 litere
-    if (symbolRegex.test(username) || lessThanFourLettersRegex.test(username)) {
-      Toastify({
-        text: "Numele trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
-        duration: 3000,
-        close: true,
-        backgroundColor: "red",
-      }).showToast();
-      return;
-    }
-
-    // Verifică dacă numele de familie conține simboluri sau are mai puțin de 4 litere
-    if (symbolRegex.test(surname) || lessThanFourLettersRegex.test(surname)) {
-      Toastify({
-        text: "Numele de familie trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
-        duration: 3000,
-        close: true,
-        backgroundColor: "red",
-      }).showToast();
-      return;
-    }
-
-    // Dacă toate condițiile sunt îndeplinite, poți continua cu procesul de înregistrare
-    // ...
   });
