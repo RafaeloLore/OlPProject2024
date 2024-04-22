@@ -19,6 +19,8 @@ document
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
+    var symbolRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+    var lessThanFourLettersRegex = /^.{1,3}$/;
 
     // Проверка на пустые поля и совпадение паролей//
     if (
@@ -74,4 +76,28 @@ document
       close: true,
       backgroundColor: "green",
     }).showToast();
+    // Verifică dacă numele conține simboluri sau are mai puțin de 4 litere
+    if (symbolRegex.test(username) || lessThanFourLettersRegex.test(username)) {
+      Toastify({
+        text: "Numele trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
+        duration: 3000,
+        close: true,
+        backgroundColor: "red",
+      }).showToast();
+      return;
+    }
+
+    // Verifică dacă numele de familie conține simboluri sau are mai puțin de 4 litere
+    if (symbolRegex.test(surname) || lessThanFourLettersRegex.test(surname)) {
+      Toastify({
+        text: "Numele de familie trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
+        duration: 3000,
+        close: true,
+        backgroundColor: "red",
+      }).showToast();
+      return;
+    }
+
+    // Dacă toate condițiile sunt îndeplinite, poți continua cu procesul de înregistrare
+    // ...
   });
