@@ -12,7 +12,67 @@ body {
   background-size: cover;
 }
 section {
-  background-color: aquamarine;
+  background-color: rgba(127, 197, 255, 0.486);
   width: 80%;
   height: 300px;
+}
+header {
+  background-color: rgba(255, 0, 0, 0.493);
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+.section1 {
+  display: flex;
+}
+.bt {
+  margin-top: 15.5px;
+  height: 50px;
+  width: 170px;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 25px;
+  border: none;
+  transition: 0.3s;
+  margin-left: -35px;
+  background-color: white;
+}
+.bt1 {
+  z-index: 3;
+}
+.bt2 {
+  z-index: 2;
+}
+.bt3 {
+  z-index: 1;
+}
+
+.bt:hover {
+  color: white;
+  background-color: rgb(43, 43, 43);
+  transition: 0.3s;
+}
+.mar {
+  margin-left: -45px;
+}
+.nav__logo {
+  margin-top: 5px;
+  width: 75px;
+  height: 75px;
+  background-color: white;
+  border-radius: 100px;
+  z-index: 6;
+}
+.trns-text {
+  background: url(/Photos/city.jpg) -4px 0px no-repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  /* Below is not needed */
+  display: block;
+  font-size: 65px;
+  font-family: arial;
+  text-align: center;
+  font-weight: bold;
+  background-size: cover;
 }
