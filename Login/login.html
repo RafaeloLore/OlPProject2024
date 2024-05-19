@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,500;1,500&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/Login/loginSt.css" />
     <link rel="stylesheet" href="/Other/navbar.css" />
+    <link rel="stylesheet" href="/Other/navbar.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-<script src="/Login/loginJs.js" defer></script>
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script src="/Login/loginJs.js" defer></script>
   </head>
   <body>
     <header>
+      <a href="/Home/homepage.html" class="home">We'reHOME</a>
 
-      <a href="/Home/homepage.html"
-        ><input class="home__button btn btn1" type="button" value="HomePage"
-      /></a>
-    
-      <img class="nav__logo" src="/Photos/home-shape-icon--25.png" />
-      
-
-      <a href="/Register/register.html"
-        ><input class="login__button btn btn2" type="button" value="Register"
-      /></a>
+      <a href="/User/user.html" class="cont">user</a>
     </header>
+    <hr />
     <section>
+      <p class="wltext text">Esti deja membru?</p>
       <form id="loginForm">
-        <label for="loginUsername">Numele:</label><br>
-        <input type="text" id="loginUsername" name="loginUsername" required><br>
-        <label for="loginPassword">password:</label><br>
-        <input type="password" id="loginPassword" name="loginPassword" required><br>
-        <button  class="regbutton" type="submit">Login</button>
-    </form>
+        <label for="loginUsername" class="loginUsername">Numele:</label><br />
+        <input
+          type="text"
+          id="loginUsername"
+          name="loginUsername"
+          required
+        /><br />
+        <label for="loginPassword">password:</label><br />
+        <input
+          type="password"
+          id="loginPassword"
+          name="loginPassword"
+          required
+        /><br />
+        <button class="regbutton" type="submit">Login</button>
+      </form>
+      <div class="section2">
+        <p class="wltext text">Ești un membru nou?</p>
+        <a href="/Register/register.html" class="loginbutton">Creeaza cont</a>
+      </div>
     </section>
   </body>
 </html>

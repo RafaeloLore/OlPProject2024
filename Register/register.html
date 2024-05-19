@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -23,18 +23,16 @@
   </head>
   <body>
     <header>
-      <a href="/Home/homepage.html"
-        ><input class="home__button btn btn1" type="button" value="HomePage"
-      /></a>
-      <img class="nav__logo" src="/Photos/home-shape-icon--25.png" />
+      <a href="/Home/homepage.html" class="home">We'reHOME</a>
 
-      <a href="/Login/login.html"
-        ><input class="login__button btn btn2" type="button" value="LoginPage"
-      /></a>
+     <a href="/User/user.html" class="cont">user</a>
     </header>
+    <hr />
     <section>
+      <p class="wltext text">Ești un membru nou?
+      </p>
       <form id="registrationForm">
-        <label for="username">Numele:</label>
+        <label for="username" class="loginUsername">Numele:</label>
         <input type="text" id="username" name="username" required />
         <label for="username">Prenume:</label>
         <input type="text" id="familiname" name="familiname" required />
@@ -51,8 +49,13 @@
         /><br />
         <label for="dob">Data nasterei:</label><br />
         <input type="date" id="dob" name="dob" required /><br />
-        <button type="submit" class="regbutton">Register</button>
+       
+        <button type="submit" class="regbutton">Creeaza cont</button>
+
       </form>
-    </section>
+      <div class="section2">
+        <p class="wltext text">Esti deja membru?</p>
+        <a href="/Login/login.html" class="loginbutton">Login</a>
+      </div>
   </body>
 </html>

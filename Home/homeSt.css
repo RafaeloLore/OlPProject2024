@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,500;1,500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
 }
 body {
-  background-image: url(/Photos/city.jpg);
   width: 100%;
   height: 100%;
+  background-image: url(/Photos/city.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -13,90 +15,23 @@ body {
 }
 
 section {
-  margin-top:15px ;
-  background-color: #000000b2;
-  width: 80%;
-  height: 600px;
   display: flex;
-  border-radius: 15px;
-
- 
-}
-form{
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-
-}
-header {
-  background-color: #000000b2;
   width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: space-around;
-  
-}
-.section1 {
-  display: flex;
-}
-.bt {
-  margin-top: 15.5px;
-  height: 50px;
-  width: 170px;
-  cursor: pointer;
-  font-size: 17px;
-  border-radius: 25px;
-  border: none;
-  transition: 0.3s;
-  margin-left: -35px;
-  background-color: white;
-}
-.bt1 {
-  z-index: 3;
-}
-.bt2 {
-  z-index: 2;
-}
-.bt3 {
-  z-index: 1;
+
 }
 
-.bt:hover {
-  color: white;
-  background-color: rgb(43, 43, 43);
-  transition: 0.3s;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 700px;
+
+  font-family: "Radio Canada Big", sans-serif;
+  background-color: #ffffff;
 }
-.mar {
-  margin-left: -45px;
-}
-.nav__logo {
-  margin-top: 5px;
-  width: 75px;
-  height: 75px;
-  background-color: white;
-  border-radius: 100px;
-  z-index: 6;
-}
-.trns-text {
-  background: url(/Photos/city.jpg) -4px 0px no-repeat;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  /* Below is not needed */
-  display: block;
-  font-size: 65px;
-  font-family: arial;
-  text-align: center;
-  font-weight: bold;
-  background-size: cover;
-  margin-left: 245px;
-}
-.regbutton {
-  margin-top: 15px;
-  height: 40px;
-  width: 130px;
-  cursor: pointer;
-  font-size: 17px;
-  border-radius: 25px;
-  border: none;
-  transition: 0.3s;
+hr{
+  margin-bottom:80px ;
 }
