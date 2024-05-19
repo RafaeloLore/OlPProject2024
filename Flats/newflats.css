@@ -37,3 +37,15 @@ hr {
 .newflats{
     border-bottom: 1px solid black;
 }
+.regbutton {
+    font-family: "Radio Canada Big", sans-serif;
+  
+    background-color: rgb(85, 85, 85);
+    color: white;
+    height: 50px;
+    width: 25%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 25px;
+  }

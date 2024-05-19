@@ -1,120 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="/User/userSt.css" />
+    <link rel="stylesheet" href="/Other/navbar.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Профиль пользователя</title>
   </head>
   <body>
-    <h2>Профиль пользователя</h2>
-    <p>Ваше имя: <span id="username"></span></p>
-    <p>Ваша фамилия: <span id="surname"></span></p>
-    <p>Email: <span id="email"></span></p>
-    <p><a href="edit_user.html">Изменить данные</a></p>
+    <header>
+      <div class="left">
+        <a href="/Home/homepage.html" class="home">We'reHOME</a>
+        <a href="/Flats/allflats.html" class="navflats">AllFlats</a>
+        <a href="/Flats/newflats.html" class="navflats">NewFlats</a>
+      </div>
+      <div class="right">
+        <p class="wlhome">Welkome Home</p>
+        <a href="/User/user.html" class="cont">user</a>
+      </div>
+    </header>
+    
+    <hr />
+    <section>
+      
 
-    <script>
-      function getCurrentUserFromLocalStorage() {
-        var currentUser = localStorage.getItem("currentUser");
-        return currentUser ? JSON.parse(currentUser) : null;
-      }
+      <form id="registrationForm">
+        <h2>User profile</h2>
+    <p>Numele dumneavoastră: <span id="username" class="textd"></span></p>
+    <p>Numele dvs. de familie: <span id="surname" class="textd"></span></p>
+    <p>Email: <span id="email" class="textd"></span></p>
+  
+    <button type="submit" class="regbutton">Schimba datele</button>
 
-      // Функция для сохранения обновленных данных пользователя в Local Storage
-      function saveCurrentUserToLocalStorage(user) {
-        localStorage.setItem("currentUser", JSON.stringify(user));
-      }
-
-      document
-        .getElementById("updateForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Предотвращаем отправку формы
-
-          var username = document.getElementById("username").value;
-          var surname = document.getElementById("surname").value;
-          var email = document.getElementById("email").value;
-          var password = document.getElementById("password").value;
-          var confirmPassword =
-            document.getElementById("confirmPassword").value;
-
-          // Проверка на пустые поля и совпадение паролей
-          if (
-            !username ||
-            !surname ||
-            !email ||
-            !password ||
-            !confirmPassword ||
-            password !== confirmPassword
-          ) {
-            Toastify({
-              text: "Пожалуйста, заполните все поля и проверьте пароли",
-              duration: 3000,
-              close: true,
-              backgroundColor: "red",
-            }).showToast();
-            return;
-          }
-
-          // Получаем текущего пользователя
-          var currentUser = getCurrentUserFromLocalStorage();
-
-          // Обновляем данные текущего пользователя
-          currentUser.username = username;
-          currentUser.surname = surname;
-          currentUser.email = email;
-          currentUser.password = password;
-
-          // Сохраняем обновленные данные текущего пользователя в Local Storage
-          saveCurrentUserToLocalStorage(currentUser);
-
-          Toastify({
-            text: "Данные обновлены успешно!",
-            duration: 3000,
-            close: true,
-            backgroundColor: "green",
-          }).showToast();
-        });
-
-      // Заполним форму текущими данными пользователя при загрузке страницы
-      window.onload = function () {
-        var currentUser = getCurrentUserFromLocalStorage();
-        if (currentUser) {
-          document.getElementById("username").value = currentUser.username;
-          document.getElementById("surname").value = currentUser.surname;
-          document.getElementById("email").value = currentUser.email;
-          // Пароль не должен быть заполнен, чтобы пользователь самостоятельно ввел новый пароль
-        }
-      };
-      // Функция для получения текущего пользователя из Local Storage
-      function getCurrentUserFromLocalStorage() {
-        var currentUser = localStorage.getItem("currentUser");
-        return currentUser ? JSON.parse(currentUser) : null;
-      }
-
-      // Заполним данные текущего пользователя при загрузке страницы
-      window.onload = function () {
-        var currentUser = getCurrentUserFromLocalStorage();
-        if (currentUser) {
-          document.getElementById("username").textContent =
-            currentUser.username;
-          document.getElementById("surname").textContent = currentUser.surname;
-          document.getElementById("email").textContent = currentUser.email;
-        }
-      };
-      // Функция для получения текущего пользователя из Local Storage
-      function getCurrentUserFromLocalStorage() {
-        var currentUser = localStorage.getItem("currentUser");
-        return currentUser ? JSON.parse(currentUser) : null;
-      }
-
-      // Заполним данные текущего пользователя при загрузке страницы
-      window.onload = function () {
-        var currentUser = getCurrentUserFromLocalStorage();
-        if (currentUser) {
-          document.getElementById("username").textContent =
-            currentUser.username;
-          document.getElementById("surname").textContent = currentUser.surname;
-          document.getElementById("email").textContent = currentUser.email;
-        }
-      };
-    </script>
+      </form>
+      
   </body>
 </html>

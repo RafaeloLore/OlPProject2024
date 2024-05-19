@@ -6,6 +6,7 @@
     <title>We'reHOME</title>
     <link rel="stylesheet" href="/Flats/newflats.css" />
     <link rel="stylesheet" href="/Other/navbar.css" />
+    <script src="/Flats/newflats.js " defer></script>
   </head>
   <body>
     <header>
@@ -21,7 +22,46 @@
     </header>
     <hr />
     <section>
-      <form id="registrationForm"></form>
+      <form id="flatForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br />
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required /><br />
+
+        <label for="streetName">Street Name:</label>
+        <input type="text" id="streetName" name="streetName" required /><br />
+
+        <label for="streetNumber">Street Number:</label>
+        <input
+          type="number"
+          id="streetNumber"
+          name="streetNumber"
+          required
+        /><br />
+
+        <label for="areaSize">Area Size:</label>
+        <input type="number" id="areaSize" name="areaSize" required /><br />
+
+        <label for="hasAC">Has AC:</label>
+        <input type="checkbox" id="hasAC" name="hasAC" /><br />
+
+        <label for="yearBuilt">Year Built:</label>
+        <input type="number" id="yearBuilt" name="yearBuilt" required /><br />
+
+        <label for="rentPrice">Rent Price:</label>
+        <input type="number" id="rentPrice" name="rentPrice" required /><br />
+
+        <label for="dateAvailable">Date Available:</label>
+        <input
+          type="date"
+          id="dateAvailable"
+          name="dateAvailable"
+          required
+        /><br />
+
+        <button type="submit">Submit</button>
+      </form>
     </section>
   </body>
 </html>
