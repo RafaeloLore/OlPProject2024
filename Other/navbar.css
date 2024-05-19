@@ -39,10 +39,25 @@ hr {
   font-size: 14px;
   margin-right: 35px;
 }
-.navflats{
+.navflats {
   text-decoration: none;
   color: black;
   font-family: "Radio Canada Big", sans-serif;
   margin: 0px 15px 0 15px;
   font-size: 17px;
+}
+.right {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.wlhome {
+  margin-right: 25px;
+  font-family: "Radio Canada Big", sans-serif;
+  font-size: 20px;
+}
+.navflats:hover {
+  border-bottom: 1px solid black;
 }
