@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,500;1,500&display=swap");
+
+#usernameDisplay {
+  font-family: "Radio Canada Big", sans-serif;
+  cursor: pointer;
+
+  float: right;
+  color: #000000;
+  margin: 10px 10px 10px 0px;
+}
+.logout {
+  box-sizing: border-box;
+  font-family: "Radio Canada Big", sans-serif;
+  cursor: pointer;
+  color: #000000;
+  margin: 10px 10px 10px 0px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+#usernameDisplay:hover {
+  box-sizing: border-box;
+
+  border-bottom: 1px solid black;
+}
+.logout:hover {
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+}

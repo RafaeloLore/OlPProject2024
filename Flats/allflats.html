@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="/Flats/allflats.css" />
     <link rel="stylesheet" href="/Other/navbar.css" />
     <link rel="stylesheet" href="/Flats/redakt.css" />
-    
+    <link rel="stylesheet" href="/Other/use.css" />
+
+    <script src="/zaebal.js" defer></script>
     <script src="/Flats/allflats.js" defer></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
@@ -25,13 +27,15 @@
       </div>
       <div class="right">
         <p class="wlhome">Welkome Home</p>
+        <span id="usernameDisplay"></span>
+        <span class="logout" onclick="logout()">Exit</span>
         <a href="/User/user.html" class="cont">user</a>
       </div>
     </header>
     <hr />
     <section>
       <h1>All Flats</h1>
-      <table >
+      <table>
         <thead>
           <tr>
             <th>Name</th>

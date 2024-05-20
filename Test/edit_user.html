@@ -3,25 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Изменение данных</title>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <title>Редактирование данных пользователя</title>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
+    <style>
+      .navbar {
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .navbar .logout {
+        float: right;
+        cursor: pointer;
+        color: #f2f2f2;
+        padding: 14px 16px;
+      }
+
+      #usernameDisplay {
+        float: right;
+        color: #f2f2f2;
+        padding: 14px 16px;
+      }
+    </style>
   </head>
   <body>
-    <h2>Изменение данных</h2>
+    <div class="navbar">
+      <a href="home.html">Главная</a>
+      <a href="edit_user.html">Редактировать данные</a>
+      <span id="usernameDisplay"></span>
+      <span class="logout" onclick="logout()">Выйти</span>
+    </div>
+    <h2>Редактирование данных пользователя</h2>
     <form id="updateForm">
-      <label for="username">Новое имя пользователя:</label><br />
+      <label for="username">Имя пользователя:</label><br />
       <input type="text" id="username" name="username" required /><br />
-      <label for="surname">Новая фамилия:</label><br />
+      <label for="surname">Фамилия:</label><br />
       <input type="text" id="surname" name="surname" required /><br />
-      <label for="email">Новый Email:</label><br />
+      <label for="email">Email:</label><br />
       <input type="email" id="email" name="email" required /><br />
-      <label for="password">Новый пароль:</label><br />
+      <label for="password">Пароль:</label><br />
       <input type="password" id="password" name="password" required /><br />
-      <label for="confirmPassword">Подтвердите новый пароль:</label><br />
+      <label for="confirmPassword">Подтвердите пароль:</label><br />
       <input
         type="password"
         id="confirmPassword"
@@ -32,13 +71,11 @@
     </form>
 
     <script>
-      // Функция для получения текущего пользователя из Local Storage
       function getCurrentUserFromLocalStorage() {
         var currentUser = localStorage.getItem("currentUser");
         return currentUser ? JSON.parse(currentUser) : null;
       }
 
-      // Функция для сохранения обновленных данных пользователя в Local Storage
       function saveCurrentUserToLocalStorage(user) {
         localStorage.setItem("currentUser", JSON.stringify(user));
       }
@@ -46,7 +83,7 @@
       document
         .getElementById("updateForm")
         .addEventListener("submit", function (event) {
-          event.preventDefault(); // Предотвращаем отправку формы
+          event.preventDefault();
 
           var username = document.getElementById("username").value;
           var surname = document.getElementById("surname").value;
@@ -55,7 +92,6 @@
           var confirmPassword =
             document.getElementById("confirmPassword").value;
 
-          // Проверка на пустые поля и совпадение паролей
           if (
             !username ||
             !surname ||
@@ -73,16 +109,13 @@
             return;
           }
 
-          // Получаем текущего пользователя
           var currentUser = getCurrentUserFromLocalStorage();
 
-          // Обновляем данные текущего пользователя
           currentUser.username = username;
           currentUser.surname = surname;
           currentUser.email = email;
           currentUser.password = password;
 
-          // Сохраняем обновленные данные текущего пользователя в Local Storage
           saveCurrentUserToLocalStorage(currentUser);
 
           Toastify({
@@ -93,16 +126,22 @@
           }).showToast();
         });
 
-      // Заполним форму текущими данными пользователя при загрузке страницы
       window.onload = function () {
         var currentUser = getCurrentUserFromLocalStorage();
         if (currentUser) {
           document.getElementById("username").value = currentUser.username;
           document.getElementById("surname").value = currentUser.surname;
           document.getElementById("email").value = currentUser.email;
-          // Пароль не должен быть заполнен, чтобы пользователь самостоятельно ввел новый пароль
+          document.getElementById(
+            "usernameDisplay"
+          ).textContent = `Здравствуйте, ${currentUser.username}`;
         }
       };
+
+      function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "login.html";
+      }
     </script>
   </body>
 </html>

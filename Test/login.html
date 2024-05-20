@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+    <h2>Вход</h2>
+    <form id="loginForm">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Пароль:</label><br>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Войти</button>
+    </form>
+
+    <script>
+        function getUsersFromLocalStorage() {
+            var users = localStorage.getItem("users");
+            return users ? JSON.parse(users) : [];
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var users = getUsersFromLocalStorage();
+            var user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                localStorage.setItem("currentUser", JSON.stringify(user));
+                window.location.href = "home.html";
+            } else {
+                Toastify({
+                    text: "Неправильный email или пароль",
+                    duration: 3000,
+                    close: true,
+                    backgroundColor: "red"
+                }).showToast();
+            }
+        });
+    </script>
+</body>
+</html>

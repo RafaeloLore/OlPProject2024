@@ -37,4 +37,15 @@ document
         backgroundColor: "red",
       }).showToast();
     }
+    if (user) {
+      localStorage.setItem("currentUser", JSON.stringify(user));
+      window.location.href = "/Home/homepage.html";
+    } else {
+      Toastify({
+        text: "Неправильный email или пароль",
+        duration: 3000,
+        close: true,
+        backgroundColor: "red",
+      }).showToast();
+    }
   });

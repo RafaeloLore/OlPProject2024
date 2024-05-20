@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <h2>Регистрация</h2>
+    <form id="registrationForm">
+      <label for="username">Имя пользователя:</label><br />
+      <input type="text" id="username" name="username" required /><br />
+      <label for="surname">Фамилия:</label><br />
+      <input type="text" id="surname" name="surname" required /><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+      <label for="password">Пароль:</label><br />
+      <input type="password" id="password" name="password" required /><br />
+      <label for="confirmPassword">Подтвердите пароль:</label><br />
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        required
+      /><br />
+      <label for="birthdate">Дата рождения:</label><br />
+      <input type="date" id="birthdate" name="birthdate" required /><br />
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var username = document.getElementById("username").value;
+          var surname = document.getElementById("surname").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var confirmPassword =
+            document.getElementById("confirmPassword").value;
+          var birthdate = document.getElementById("birthdate").value;
+
+          // Проверка на совпадение паролей
+          if (password !== confirmPassword) {
+            Toastify({
+              text: "Пароли не совпадают",
+              duration: 3000,
+              close: true,
+              backgroundColor: "red",
+            }).showToast();
+            return;
+          }
+
+          // Проверка на символы и длину имени и фамилии
+          var nameRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{4,}$/;
+          if (nameRegex.test(username) || nameRegex.test(surname)) {
+            Toastify({
+              text: "Имя и фамилия не должны содержать цифры или специальные символы и должны быть длиной не менее 4 символов",
+              duration: 3000,
+              close: true,
+              backgroundColor: "red",
+            }).showToast();
+            return;
+          }
+
+          // Проверка возраста (не менее 18 лет)
+          var birthdateObj = new Date(birthdate);
+          var today = new Date();
+          var age = today.getFullYear() - birthdateObj.getFullYear();
+          var monthDifference = today.getMonth() - birthdateObj.getMonth();
+          if (
+            monthDifference < 0 ||
+            (monthDifference === 0 && today.getDate() < birthdateObj.getDate())
+          ) {
+            age--;
+          }
+
+          if (age < 18) {
+            Toastify({
+              text: "Вам должно быть не менее 18 лет для регистрации",
+              duration: 3000,
+              close: true,
+              backgroundColor: "red",
+            }).showToast();
+            return;
+          }
+
+          // Сохранение данных пользователя в Local Storage
+          var users = JSON.parse(localStorage.getItem("users")) || [];
+          if (
+            users.some(
+              (user) => user.username === username && user.surname === surname
+            )
+          ) {
+            Toastify({
+              text: "Пользователь с таким именем и фамилией уже существует",
+              duration: 3000,
+              close: true,
+              backgroundColor: "red",
+            }).showToast();
+            return;
+          }
+
+          var newUser = {
+            username: username,
+            surname: surname,
+            email: email,
+            password: password,
+            birthdate: birthdate,
+          };
+
+          users.push(newUser);
+          localStorage.setItem("users", JSON.stringify(users));
+
+          Toastify({
+            text: "Регистрация прошла успешно",
+            duration: 3000,
+            close: true,
+            backgroundColor: "green",
+          }).showToast();
+
+          // Перенаправление на страницу входа
+          window.location.href = "login.html";
+        });
+    </script>
+  </body>
+</html>

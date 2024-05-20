@@ -33,4 +33,4 @@ function removeFromFavorites(flatId) {
   localStorage.setItem("favorites", JSON.stringify(favorites));
   toastr.success("Flat removed from favorites!");
   location.reload();
-}
+ }

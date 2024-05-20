@@ -3,9 +3,13 @@
   <head>
     <link rel="stylesheet" href="/User/userSt.css" />
     <link rel="stylesheet" href="/Other/navbar.css" />
+    <script src="/User/user.js" defer></script>
+    <script src="/zaebal.js" defer></script>
+    <link rel="stylesheet" href="/Other/use.css" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Профиль пользователя</title>
+    <title>We'reHOME</title>
   </head>
   <body>
     <header>
@@ -16,23 +20,32 @@
       </div>
       <div class="right">
         <p class="wlhome">Welkome Home</p>
+        <span id="usernameDisplay"></span>
+        <span class="logout" onclick="logout()">Exit</span>
         <a href="/User/user.html" class="cont">user</a>
       </div>
     </header>
-    
+
     <hr />
-    <section>
-      
 
-      <form id="registrationForm">
-        <h2>User profile</h2>
-    <p>Numele dumneavoastră: <span id="username" class="textd"></span></p>
-    <p>Numele dvs. de familie: <span id="surname" class="textd"></span></p>
-    <p>Email: <span id="email" class="textd"></span></p>
-  
-    <button type="submit" class="regbutton">Schimba datele</button>
-
-      </form>
-      
+    <form id="updateForm">
+      <h1>Editarea datelor utilizatorului</h1>
+      <label for="username" class="loginUsername">Numele:</label>
+      <input type="text" id="username" name="username" required />
+      <label for="username">Prenume:</label>
+      <input type="text" id="familiname" name="familiname" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <label for="password">password:</label>
+      <input type="password" id="password" name="password" required />
+      <label for="confirmPassword">Repeat password:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        required
+      /><br />
+      <button type="submit" class="regbutton">Actualizați datele</button>
+    </form>
   </body>
 </html>
