@@ -37,3 +37,11 @@ hr {
 .allflats {
   border-bottom: 1px solid black;
 }
+h1 {
+  font-family: "Radio Canada Big", sans-serif;
+  margin: 25px 0px 25px 0px;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px 0 black, 0 1px rgb(0, 0, 0), 2px 0 rgb(0, 0, 0),
+    0 -1px black;
+}

@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- В head вашего HTML документа -->
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>We'reHOME</title>
     <link rel="stylesheet" href="/Home/homeSt.css" />
+    <link rel="stylesheet" href="/Flats/redakt.css" />
+
     <link rel="stylesheet" href="/Other/navbar.css" />
+    <script src="/Home/homeJs.js" defer></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <header>
       <div class="left">
-        <a href="/Home/homepage.html" class="home ">We'reHOME</a>
-        <a href="/Flats/allflats.html" class="navflats ">AllFlats</a>
-        <a href="/Flats/newflats.html" class="navflats ">NewFlats</a>
+        <a href="/Home/homepage.html" class="home">We'reHOME</a>
+        <a href="/Flats/allflats.html" class="navflats">AllFlats</a>
+        <a href="/Flats/newflats.html" class="navflats">NewFlats</a>
       </div>
       <div class="right">
         <p class="wlhome">Welkome Home</p>
@@ -21,7 +38,26 @@
     </header>
     <hr />
     <section>
-      <form id="registrationForm"></form>
+      <h1>Favorite Flats</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Street Name</th>
+            <th>Street Number</th>
+            <th>Area Size</th>
+            <th>Has AC</th>
+            <th>Year Built</th>
+            <th>Rent Price</th>
+            <th>Date Available</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="favoritesTableBody">
+          <!-- Rows will be added here by JavaScript -->
+        </tbody>
+      </table>
     </section>
   </body>
 </html>

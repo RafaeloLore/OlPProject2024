@@ -16,16 +16,17 @@ body {
 
 section {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 100%;
+
 }
 
 form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   width: 100%;
+
   height: 700px;
 
   font-family: "Radio Canada Big", sans-serif;
@@ -34,18 +35,55 @@ form {
 hr {
   margin-bottom: 80px;
 }
-.newflats{
-    border-bottom: 1px solid black;
+.newflats {
+  border-bottom: 1px solid black;
 }
 .regbutton {
-    font-family: "Radio Canada Big", sans-serif;
-  
-    background-color: rgb(85, 85, 85);
-    color: white;
-    height: 50px;
-    width: 25%;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 25px;
-  }
+  font-family: "Radio Canada Big", sans-serif;
+width: 250px;
+  background-color: rgb(85, 85, 85);
+  color: white;
+  height: 50px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.regbutton:hover {
+  background-color: black;
+}
+input[type="date"] {
+  cursor: pointer;
+  border-radius: 65px;
+  border: none;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgba(65, 65, 65, 0.404);
+}
+.section1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 700px;
+
+  font-family: "Radio Canada Big", sans-serif;
+  background-color: #ffffff;
+  margin:0px 155px;
+}
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+  font-family: "Radio Canada Big", sans-serif;
+  margin: 25px 0px 25px 0px;
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px 0 black, 0 1px rgb(0, 0, 0), 2px 0 rgb(0, 0, 0),
+    0 -1px black;
+}

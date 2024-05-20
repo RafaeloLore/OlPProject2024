@@ -13,6 +13,7 @@ document
       yearBuilt: document.getElementById("yearBuilt").value,
       rentPrice: document.getElementById("rentPrice").value,
       dateAvailable: document.getElementById("dateAvailable").value,
+      id: Date.now(),
     };
 
     let flats = JSON.parse(localStorage.getItem("flats")) || [];

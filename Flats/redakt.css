@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,500;1,500&display=swap");
+
+.btn-add-favorites {
+  font-family: "Radio Canada Big", sans-serif;
+
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  cursor: pointer;
+}
+
+.btn-add-favorites:hover {
+  background-color: #218838;
+}
+
+.btn-remove-favorites {
+  font-family: "Radio Canada Big", sans-serif;
+
+  background-color: #ffc107;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.btn-remove-favorites:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  font-family: "Radio Canada Big", sans-serif;
+
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+box-sizing: border-box;}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+table {
+  border-collapse: collapse;
+  width: 95%;
+  background-color: rgba(0, 0, 0, 0.712);
+  color: rgb(255, 255, 255);
+  overflow: auto;
+}
+td {
+  text-align: center;
+  height: 50px;
+}
+table,
+td,
+th {
+  border: 1px solid rgba(0, 0, 0, 0.178);
+}
