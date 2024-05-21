@@ -1,3 +1,7 @@
+function generateUserId() {
+  return "user_" + Math.random().toString(36).substr(2, 9);
+}
+
 // Функция для получения данных о пользователях из Local Storage//
 function getUsersFromLocalStorage() {
   var users = localStorage.getItem("users");

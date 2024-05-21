@@ -15,8 +15,8 @@
     <form id="registrationForm">
       <label for="username">Имя пользователя:</label><br />
       <input type="text" id="username" name="username" required /><br />
-      <label for="surname">Фамилия:</label><br />
-      <input type="text" id="surname" name="surname" required /><br />
+      <label for="familiname">Фамилия:</label><br />
+      <input type="text" id="familiname" name="familiname" required /><br />
       <label for="email">Email:</label><br />
       <input type="email" id="email" name="email" required /><br />
       <label for="password">Пароль:</label><br />
@@ -34,57 +34,42 @@
     </form>
 
     <script>
+      function generateUserId() {
+        return "user_" + Math.random().toString(36).substr(2, 9);
+      }
+
+      // Функция для получения данных о пользователях из Local Storage//
+      function getUsersFromLocalStorage() {
+        var users = localStorage.getItem("users");
+        return users ? JSON.parse(users) : [];
+      }
+
+      // Функция для сохранения данных о пользователях в Local Storage//
+      function saveUsersToLocalStorage(users) {
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+
       document
         .getElementById("registrationForm")
         .addEventListener("submit", function (event) {
-          event.preventDefault();
+          event.preventDefault(); // Предотвращаем отправку формы
 
           var username = document.getElementById("username").value;
-          var surname = document.getElementById("surname").value;
+          var familiname = document.getElementById("familiname").value;
           var email = document.getElementById("email").value;
           var password = document.getElementById("password").value;
           var confirmPassword =
             document.getElementById("confirmPassword").value;
-          var birthdate = document.getElementById("birthdate").value;
+          var symbolRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+          var lessThanFourLettersRegex = /^.{1,3}$/;
 
-          // Проверка на совпадение паролей
-          if (password !== confirmPassword) {
-            Toastify({
-              text: "Пароли не совпадают",
-              duration: 3000,
-              close: true,
-              backgroundColor: "red",
-            }).showToast();
-            return;
-          }
-
-          // Проверка на символы и длину имени и фамилии
-          var nameRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{4,}$/;
-          if (nameRegex.test(username) || nameRegex.test(surname)) {
-            Toastify({
-              text: "Имя и фамилия не должны содержать цифры или специальные символы и должны быть длиной не менее 4 символов",
-              duration: 3000,
-              close: true,
-              backgroundColor: "red",
-            }).showToast();
-            return;
-          }
-
-          // Проверка возраста (не менее 18 лет)
-          var birthdateObj = new Date(birthdate);
-          var today = new Date();
-          var age = today.getFullYear() - birthdateObj.getFullYear();
-          var monthDifference = today.getMonth() - birthdateObj.getMonth();
+          // Verifică dacă numele conține simboluri sau are mai puțin de 4 litere
           if (
-            monthDifference < 0 ||
-            (monthDifference === 0 && today.getDate() < birthdateObj.getDate())
+            symbolRegex.test(username) ||
+            lessThanFourLettersRegex.test(username)
           ) {
-            age--;
-          }
-
-          if (age < 18) {
             Toastify({
-              text: "Вам должно быть не менее 18 лет для регистрации",
+              text: "Numele trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
               duration: 3000,
               close: true,
               backgroundColor: "red",
@@ -92,15 +77,52 @@
             return;
           }
 
-          // Сохранение данных пользователя в Local Storage
-          var users = JSON.parse(localStorage.getItem("users")) || [];
+          // Verifică dacă numele de familie conține simboluri sau are mai puțin de 4 litere
+          if (
+            symbolRegex.test(familiname) ||
+            lessThanFourLettersRegex.test(familiname)
+          ) {
+            Toastify({
+              text: "Numele de familie trebuie să aibă cel puțin 4 litere și să nu conțină simboluri speciale!",
+              duration: 3000,
+              close: true,
+              backgroundColor: "red",
+            }).showToast();
+            return;
+          }
+
+          // Dacă toate condițiile sunt îndeplinite, poți continua cu procesul de înregistrare
+          // ...
+          // Проверка на пустые поля и совпадение паролей//
+          if (
+            !username ||
+            !familiname ||
+            !email ||
+            !password ||
+            !confirmPassword ||
+            password !== confirmPassword
+          ) {
+            Toastify({
+              text: "Verficati daca ati indeplenit toate campurili si parola este corecta",
+              duration: 3000,
+              close: true,
+              backgroundColor: "red",
+            }).showToast();
+            return;
+          }
+
+          // Получаем текущий список пользователей//
+          var users = getUsersFromLocalStorage();
+
+          // Проверяем, есть ли уже пользователь с таким именем//
           if (
             users.some(
-              (user) => user.username === username && user.surname === surname
+              (user) =>
+                user.username === username && user.familiname === familiname
             )
           ) {
             Toastify({
-              text: "Пользователь с таким именем и фамилией уже существует",
+              text: "Numele esete ocupat",
               duration: 3000,
               close: true,
               backgroundColor: "red",
@@ -108,26 +130,23 @@
             return;
           }
 
-          var newUser = {
+          //Addaugam user nou in lista //
+          users.push({
             username: username,
-            surname: surname,
+            familiname: familiname,
             email: email,
             password: password,
-            birthdate: birthdate,
-          };
+          });
 
-          users.push(newUser);
-          localStorage.setItem("users", JSON.stringify(users));
+          // Сохраняем обновленный список пользователей в Local Storage
+          saveUsersToLocalStorage(users);
 
           Toastify({
-            text: "Регистрация прошла успешно",
+            text: "Register Confirm!",
             duration: 3000,
             close: true,
             backgroundColor: "green",
           }).showToast();
-
-          // Перенаправление на страницу входа
-          window.location.href = "login.html";
         });
     </script>
   </body>

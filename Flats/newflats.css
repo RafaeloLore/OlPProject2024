@@ -19,7 +19,6 @@ section {
   justify-content: center;
   align-items: center;
   width: 100%;
-
 }
 
 form {
@@ -27,10 +26,10 @@ form {
   justify-content: center;
   width: 100%;
 
-  height: 700px;
+  height: 750px;
 
   font-family: "Radio Canada Big", sans-serif;
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.712);
 }
 hr {
   margin-bottom: 80px;
@@ -40,7 +39,7 @@ hr {
 }
 .regbutton {
   font-family: "Radio Canada Big", sans-serif;
-width: 250px;
+  width: 250px;
   background-color: rgb(85, 85, 85);
   color: white;
   height: 50px;
@@ -61,7 +60,7 @@ input[type="date"] {
   border: none;
   border-bottom: 1px solid rgba(65, 65, 65, 0.404);
 }
-.section1{
+.section1 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,8 +69,8 @@ input[type="date"] {
   height: 700px;
 
   font-family: "Radio Canada Big", sans-serif;
-  background-color: #ffffff;
-  margin:0px 155px;
+  color: white;
+  margin: 0px 155px;
 }
 .section2 {
   display: flex;
@@ -79,11 +78,32 @@ input[type="date"] {
   align-items: center;
   justify-content: center;
 }
-h1{
+h1 {
   font-family: "Radio Canada Big", sans-serif;
   margin: 25px 0px 25px 0px;
   font-size: 30px;
   color: rgb(255, 255, 255);
   text-shadow: -1px 0 black, 0 1px rgb(0, 0, 0), 2px 0 rgb(0, 0, 0),
     0 -1px black;
+}
+input[type="text"],
+input[type="password"],
+input[type="checkbox"],
+input[type="number"],
+input[type="email"] {
+  padding: 7px 12px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgba(65, 65, 65, 0.404);
+  background-color: rgba(0, 0, 0, 0.712);
+
+  color: white;
+}
+label {
+  font-size: 20px;
+
+  color: white;
+}
+.margin {
+  margin-top: 20px;
 }

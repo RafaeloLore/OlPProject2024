@@ -19,7 +19,6 @@ section {
   flex-direction: column;
   align-items: center;
   width: 100%;
-
 }
 
 form {
@@ -32,14 +31,45 @@ form {
   font-family: "Radio Canada Big", sans-serif;
   background-color: #ffffff;
 }
-hr{
-  margin-bottom:80px ;
+hr {
+  margin-bottom: 80px;
 }
-h1{
+h1 {
   font-family: "Radio Canada Big", sans-serif;
   margin: 25px 0px 25px 0px;
   font-size: 30px;
   color: rgb(255, 255, 255);
   text-shadow: -1px 0 black, 0 1px rgb(0, 0, 0), 1px 0 rgb(0, 0, 0),
     0 -1px black;
+}
+.mainflat {
+  border-bottom: 1px solid black;
+}
+.sortby {
+  font-family: "Radio Canada Big", sans-serif;
+  margin: 5px 0px 5px 0px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  text-shadow: -1px 0 black, 0 1px rgb(0, 0, 0), 2px 0 rgb(0, 0, 0),
+    0 -1px black;
+}
+.sortselect {
+  width: 100px;
+  height: 25px;
+  border: none;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.712);
+  text-align: center;
+}
+.sortbtn {
+  font-family: "Radio Canada Big", sans-serif;
+
+  background-color: rgb(85, 85, 85);
+  color: white;
+  height: 20px;
+  width: 100px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 15px;
 }

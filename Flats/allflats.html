@@ -11,6 +11,7 @@
 
     <script src="/zaebal.js" defer></script>
     <script src="/Flats/allflats.js" defer></script>
+    <script src="/Flats/sort.js" defer></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
       rel="stylesheet"
@@ -22,6 +23,8 @@
     <header>
       <div class="left">
         <a href="/Home/homepage.html" class="home">We'reHOME</a>
+        <a href="/Home/homepage.html" class="navflats">FavoritsFlats</a>
+
         <a href="/Flats/allflats.html" class="navflats allflats">AllFlats</a>
         <a href="/Flats/newflats.html" class="navflats newflats">NewFlats</a>
       </div>
@@ -35,8 +38,19 @@
     <hr />
     <section>
       <h1>All Flats</h1>
+      <label class="sortby" for="sortCriteria">Sort by:</label>
+      <select class="sortselect" id="sortCriteria">
+        <option value="city">City</option>
+        <option value="areaSize">Area Size</option>
+        <option value="hasAC">Has AC</option>
+        <option value="yearBuilt">Year Built</option>
+        <option value="rentPrice">Rent Price</option>
+      </select>
+      <button class="sortbtn" id="sortButton">Sort</button>
       <table>
+        
         <thead>
+          
           <tr>
             <th>Name</th>
             <th>City</th>

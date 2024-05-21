@@ -30,6 +30,9 @@
     <header>
       <div class="left">
         <a href="/Home/homepage.html" class="home">We'reHOME</a>
+        <a href="/Home/homepage.html" class="navflats mainflat"
+          >FavoritsFlats</a
+        >
         <a href="/Flats/allflats.html" class="navflats">AllFlats</a>
         <a href="/Flats/newflats.html" class="navflats">NewFlats</a>
       </div>
@@ -43,6 +46,15 @@
     <hr />
     <section>
       <h1>Favorite Flats</h1>
+      <label class="sortby" for="sortCriteria">Sort by:</label>
+      <select class="sortselect" id="sortCriteria">
+        <option value="city">City</option>
+        <option value="areaSize">Area Size</option>
+        <option value="hasAC">Has AC</option>
+        <option value="yearBuilt">Year Built</option>
+        <option value="rentPrice">Rent Price</option>
+      </select>
+      <button class="sortbtn" id="sortButton">Sort</button>
       <table>
         <thead>
           <tr>

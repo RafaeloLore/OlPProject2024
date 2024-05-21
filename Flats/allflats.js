@@ -1,7 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const flats = JSON.parse(localStorage.getItem("flats")) || [];
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+function getFlatsFromLocalStorage() {
+  var flats = localStorage.getItem("flats");
+  return flats ? JSON.parse(flats) : [];
+}
+
+function saveFlatsToLocalStorage(flats) {
+  localStorage.setItem("flats", JSON.stringify(flats));
+}
+
+function displayFlats(flats) {
   const tableBody = document.getElementById("flatsTableBody");
+  tableBody.innerHTML = "";
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
   flats.forEach((flat) => {
     const row = document.createElement("tr");
@@ -20,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isFavorite) {
       const favoriteButton = document.createElement("button");
       favoriteButton.textContent = "Add to Favorites✔️";
-      favoriteButton.classList.add("btn-add-favorites"); // Добавляем класс
+      favoriteButton.classList.add("btn-add-favorites");
       favoriteButton.onclick = function () {
         addToFavorites(flat.id);
       };
@@ -28,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       const removeFavoriteButton = document.createElement("button");
       removeFavoriteButton.textContent = "Remove from Favorites🚫";
-      removeFavoriteButton.classList.add("btn-remove-favorites"); // Добавляем класс
+      removeFavoriteButton.classList.add("btn-remove-favorites");
       removeFavoriteButton.onclick = function () {
         removeFromFavorites(flat.id);
       };
@@ -37,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete❌";
-    deleteButton.classList.add("btn-delete"); // Добавляем класс
+    deleteButton.classList.add("btn-delete");
     deleteButton.onclick = function () {
       deleteFlat(flat.id);
     };
@@ -45,6 +54,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     row.appendChild(actionsCell);
     tableBody.appendChild(row);
+  });
+}
+
+function sortFlats(flats, criteria) {
+  return flats.sort((a, b) => {
+    if (criteria === "hasAC") {
+      return a.hasAC === b.hasAC ? 0 : a.hasAC ? -1 : 1;
+    } else if (
+      criteria === "areaSize" ||
+      criteria === "yearBuilt" ||
+      criteria === "rentPrice"
+    ) {
+      return a[criteria] - b[criteria];
+    } else if (criteria === "city") {
+      return a.city.localeCompare(b.city);
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  let flats = getFlatsFromLocalStorage();
+  displayFlats(flats);
+
+  document.getElementById("sortButton").addEventListener("click", function () {
+    const sortCriteria = document.getElementById("sortCriteria").value;
+    flats = sortFlats(flats, sortCriteria);
+    displayFlats(flats);
+    saveFlatsToLocalStorage(flats);
   });
 });
 

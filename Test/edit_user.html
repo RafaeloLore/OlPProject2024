@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="/User/userSt.css" />
+    <link rel="stylesheet" href="/Other/navbar.css" />
+    <script src="/User/user.js" defer></script>
+    <script src="/zaebal.js" defer></script>
+    <link rel="stylesheet" href="/Other/use.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Редактирование данных пользователя</title>
@@ -9,39 +14,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
     />
-    <style>
-      .navbar {
-        background-color: #333;
-        overflow: hidden;
-      }
-
-      .navbar a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-
-      .navbar a:hover {
-        background-color: #ddd;
-        color: black;
-      }
-
-      .navbar .logout {
-        float: right;
-        cursor: pointer;
-        color: #f2f2f2;
-        padding: 14px 16px;
-      }
-
-      #usernameDisplay {
-        float: right;
-        color: #f2f2f2;
-        padding: 14px 16px;
-      }
-    </style>
   </head>
   <body>
     <div class="navbar">
@@ -54,8 +26,8 @@
     <form id="updateForm">
       <label for="username">Имя пользователя:</label><br />
       <input type="text" id="username" name="username" required /><br />
-      <label for="surname">Фамилия:</label><br />
-      <input type="text" id="surname" name="surname" required /><br />
+      <label for="familiname">Фамилия:</label><br />
+      <input type="text" id="familiname" name="familiname" required /><br />
       <label for="email">Email:</label><br />
       <input type="email" id="email" name="email" required /><br />
       <label for="password">Пароль:</label><br />
@@ -71,6 +43,17 @@
     </form>
 
     <script>
+      window.onload = function () {
+        var currentUser = getCurrentUserFromLocalStorage();
+        if (currentUser) {
+          document.getElementById("username").value = currentUser.username;
+          document.getElementById("familiname").value = currentUser.familiname;
+          document.getElementById("email").value = currentUser.email;
+          document.getElementById(
+            "usernameDisplay"
+          ).textContent = `Здравствуйте, ${currentUser.username}`;
+        }
+      };
       function getCurrentUserFromLocalStorage() {
         var currentUser = localStorage.getItem("currentUser");
         return currentUser ? JSON.parse(currentUser) : null;
@@ -86,7 +69,7 @@
           event.preventDefault();
 
           var username = document.getElementById("username").value;
-          var surname = document.getElementById("surname").value;
+          var familiname = document.getElementById("familiname").value;
           var email = document.getElementById("email").value;
           var password = document.getElementById("password").value;
           var confirmPassword =
@@ -94,7 +77,7 @@
 
           if (
             !username ||
-            !surname ||
+            !familiname ||
             !email ||
             !password ||
             !confirmPassword ||
@@ -112,7 +95,7 @@
           var currentUser = getCurrentUserFromLocalStorage();
 
           currentUser.username = username;
-          currentUser.surname = surname;
+          currentUser.familiname = familiname;
           currentUser.email = email;
           currentUser.password = password;
 
@@ -125,23 +108,6 @@
             backgroundColor: "green",
           }).showToast();
         });
-
-      window.onload = function () {
-        var currentUser = getCurrentUserFromLocalStorage();
-        if (currentUser) {
-          document.getElementById("username").value = currentUser.username;
-          document.getElementById("surname").value = currentUser.surname;
-          document.getElementById("email").value = currentUser.email;
-          document.getElementById(
-            "usernameDisplay"
-          ).textContent = `Здравствуйте, ${currentUser.username}`;
-        }
-      };
-
-      function logout() {
-        localStorage.removeItem("currentUser");
-        window.location.href = "login.html";
-      }
     </script>
   </body>
 </html>

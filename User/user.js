@@ -1,3 +1,7 @@
+
+
+
+
 function getCurrentUserFromLocalStorage() {
   var currentUser = localStorage.getItem("currentUser");
   return currentUser ? JSON.parse(currentUser) : null;
@@ -16,7 +20,8 @@ document
     var familiname = document.getElementById("familiname").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirmPassword").value;
+    var confirmPassword =
+      document.getElementById("confirmPassword").value;
 
     if (
       !username ||
@@ -52,15 +57,15 @@ document
     }).showToast();
   });
 
-window.onload = function () {
-  var currentUser = getCurrentUserFromLocalStorage();
-  if (currentUser) {
-    document.getElementById("username").value = currentUser.username;
-    document.getElementById("familiname").value = currentUser.familiname;
-    document.getElementById("email").value = currentUser.email;
-    document.getElementById(
-      "usernameDisplay"
-    ).textContent = `Hallo!, ${currentUser.username}`;
-  }
-};
-
+  window.onload = function () {
+    var currentUser = getCurrentUserFromLocalStorage();
+    if (currentUser) {
+      document.getElementById("username").value = currentUser.username;
+      document.getElementById("familiname").value = currentUser.familiname;
+      document.getElementById("email").value = currentUser.email;
+      document.getElementById(
+        "usernameDisplay"
+      ).textContent = `Здравствуйте, ${currentUser.username}`;
+    }
+  };
+  
