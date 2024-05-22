@@ -27,7 +27,8 @@ form {
   align-items: center;
   width: 100%;
   font-family: "Radio Canada Big", sans-serif;
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.712);
+  color: white;
 }
 
 input[type="text"],
