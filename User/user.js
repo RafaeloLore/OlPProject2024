@@ -1,16 +1,16 @@
 
 
 
-
+//берем нынещнего пользователя
 function getCurrentUserFromLocalStorage() {
   var currentUser = localStorage.getItem("currentUser");
   return currentUser ? JSON.parse(currentUser) : null;
 }
-
+//сайвим нынещнего пользователя
 function saveCurrentUserToLocalStorage(user) {
   localStorage.setItem("currentUser", JSON.stringify(user));
 }
-
+//даные юзерп и сейв
 document
   .getElementById("updateForm")
   .addEventListener("submit", function (event) {
@@ -56,7 +56,7 @@ document
       backgroundColor: "green",
     }).showToast();
   });
-
+//выход из акка
   window.onload = function () {
     var currentUser = getCurrentUserFromLocalStorage();
     if (currentUser) {

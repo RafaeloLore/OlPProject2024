@@ -1,3 +1,5 @@
+//все сорт и времено
+
 function getFavoritesFromLocalStorage() {
   var favorites = localStorage.getItem("favorites");
   return favorites ? JSON.parse(favorites) : [];

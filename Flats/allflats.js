@@ -22,7 +22,7 @@ function displayFlats(flats) {
         row.appendChild(cell);
       }
     });
-
+    //создание ногого тд
     const actionsCell = document.createElement("td");
     const isFavorite = favorites.some((f) => f.id === flat.id);
 
@@ -43,7 +43,7 @@ function displayFlats(flats) {
       };
       actionsCell.appendChild(removeFavoriteButton);
     }
-
+    //удаление
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete❌";
     deleteButton.classList.add("btn-delete");
@@ -56,7 +56,7 @@ function displayFlats(flats) {
     tableBody.appendChild(row);
   });
 }
-
+//сортировка
 function sortFlats(flats, criteria) {
   return flats.sort((a, b) => {
     if (criteria === "hasAC") {
@@ -72,7 +72,7 @@ function sortFlats(flats, criteria) {
     }
   });
 }
-
+//Событие DOMContentLoaded возникает, когда HTML-документ полностью проанализирован, а все отложенные сценарии
 document.addEventListener("DOMContentLoaded", function () {
   let flats = getFlatsFromLocalStorage();
   displayFlats(flats);
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     saveFlatsToLocalStorage(flats);
   });
 });
-
+//флат ид
 function addToFavorites(flatId) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   let flats = JSON.parse(localStorage.getItem("flats")) || [];
@@ -99,7 +99,7 @@ function addToFavorites(flatId) {
     toastr.error("Flat is already in favorites!");
   }
 }
-
+//удалить фаврит
 function removeFromFavorites(flatId) {
   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
   favorites = favorites.filter((f) => f.id !== flatId);
@@ -107,7 +107,7 @@ function removeFromFavorites(flatId) {
   toastr.success("Flat removed from favorites!");
   location.reload();
 }
-
+//удалить
 function deleteFlat(flatId) {
   let flats = JSON.parse(localStorage.getItem("flats")) || [];
   flats = flats.filter((f) => f.id !== flatId);

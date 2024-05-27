@@ -1,12 +1,14 @@
+//берем из стораге
+
 function getFavoritesFromLocalStorage() {
   var favorites = localStorage.getItem("favorites");
   return favorites ? JSON.parse(favorites) : [];
 }
-
+//сайв функцыя
 function saveFavoritesToLocalStorage(favorites) {
   localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-
+//дисплей для фаворит
 function displayFavorites(favorites) {
   const tableBody = document.getElementById("favoritesTableBody");
   tableBody.innerHTML = "";
@@ -21,7 +23,7 @@ function displayFavorites(favorites) {
         row.appendChild(cell);
       }
     });
-
+//создати елемент с удалением из избраного
     const actionsCell = document.createElement("td");
     const removeFavoriteButton = document.createElement("button");
     removeFavoriteButton.textContent = "Remove from Favorites🚫";

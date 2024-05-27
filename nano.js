@@ -1,8 +1,10 @@
+
+//берем пользователя
 function getCurrentUserFromLocalStorage() {
   var currentUser = localStorage.getItem("currentUser");
   return currentUser ? JSON.parse(currentUser) : null;
 }
-
+//если нет пользователя а также добовлякм знак если есть
 window.onload = function () {
   var currentUser = getCurrentUserFromLocalStorage();
   if (currentUser) {
@@ -17,20 +19,21 @@ window.onload = function () {
   document.getElementById("email").value = currentUser.email;
   
 };
-
+// логаут
 function logout() {
   localStorage.removeItem("currentUser");
   window.location.href = "/Login/login.html";
 }
+//берем пользователя
 function getCurrentUserFromLocalStorage() {
   var currentUser = localStorage.getItem("currentUser");
   return currentUser ? JSON.parse(currentUser) : null;
 }
-
+//сайвим
 function saveCurrentUserToLocalStorage(user) {
   localStorage.setItem("currentUser", JSON.stringify(user));
 }
-
+//примерный как усер
 document
   .getElementById("updateForm")
   .addEventListener("submit", function (event) {
